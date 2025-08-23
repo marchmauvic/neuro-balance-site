@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "ucsd-cannabinoids-post-competition-pain-rct-2022",
+    "title": "Effects of cannabinoids on pain and recovery in elite athletes: randomized clinical trial",
+    "year": 2022,
+    "venue": "NFL Player Health & Safety / UCSD CMCR",
+    "authors": ["Marcotte T", "Wallace M", "UC San Diego CMCR team"],
+    "institutions": ["UC San Diego"],
+    "design": "RCT",
+    "indication": "Post-competition soft-tissue injury pain",
+    "population": "Elite athletes (non-NFL)",
+    "n": 60,
+    "endpoints": [
+      { "name": "Pain relief vs placebo (post-competition)", "type": "Primary" },
+      { "name": "Adverse effects; recovery trajectory", "type": "Secondary" }
+    ],
+    "results": "Ongoing randomized, double-blind clinical study",
+    "keyFindings": [
+      "Randomized, double-blind design",
+      "App-based outcome monitoring"
+    ],
+    "assets": [
+      {
+        "label": "NFL press release",
+        "url": "https://www.nfl.com/playerhealthandsafety/resources/press-releases/nfl-awards-1-million-to-study-impact-of-cannabis-and-cbd-on-pain-management"
+      }
+    ],
+    "tags": ["cannabinoids", "pain", "sports"]
+  },
+  {
+    "slug": "uregina-cannabinoids-concussion-neuroprotection-2022",
+    "title": "Cannabinoids for pain management and neuroprotection from concussion in contact sports",
+    "year": 2022,
+    "venue": "NFL Player Health & Safety / University of Regina",
+    "authors": ["Neary JP", "Canadian research team"],
+    "institutions": ["University of Regina"],
+    "design": "Other",
+    "indication": "Concussion risk/severity; pain management",
+    "population": "Elite contact-sport athletes (non-NFL)",
+    "n": 80,
+    "endpoints": [
+      { "name": "Safety and pain outcomes; opioid-sparing potential", "type": "Primary" },
+      { "name": "Neuroprotective effects on concussion incidence/severity", "type": "Secondary" }
+    ],
+    "results": "Ongoing research evaluating CBD/THC for pain management and potential neuroprotection",
+    "keyFindings": ["Multidisciplinary team", "Pain + concussion outcomes"],
+    "assets": [
+      {
+        "label": "NFL press release",
+        "url": "https://www.nfl.com/playerhealthandsafety/resources/press-releases/nfl-awards-1-million-to-study-impact-of-cannabis-and-cbd-on-pain-management"
+      }
+    ],
+    "tags": ["cannabinoids", "concussion", "pain"]
+  }
+]
+
