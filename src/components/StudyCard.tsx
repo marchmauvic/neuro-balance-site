@@ -1,22 +1,10 @@
 // src/components/StudyCard.tsx
 import type { Study } from '../types/study';
 
-type Props = {
-  study: Study;
-  className?: string;
-};
+type Props = { study: Study; className?: string };
 
 export default function StudyCard({ study, className }: Props) {
-  const {
-    title,
-    year,
-    venue,
-    design,
-    population,
-    endpoints,
-    keyFindings,
-    assets,
-  } = study;
+  const { title, year, venue, design, population, endpoints, keyFindings, assets } = study;
 
   return (
     <article
