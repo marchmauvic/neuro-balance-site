@@ -1,38 +1,30 @@
-import teamRaw from "../../data/team.json";
+import type { FC } from "react";
 
 type TeamMember = {
   name: string;
   role?: string;
   bio?: string;
-  url?: string;
+  headshot?: string;
+  linkedin?: string;
 };
 
-const team: TeamMember[] = teamRaw as unknown as TeamMember[];
+import raw from "@/data/team.json";
+const people = raw as TeamMember[];
 
-export default function TeamPage() {
-  return (
-    <main className="mx-auto max-w-3xl p-8">
-      <h1 className="mb-4 text-2xl font-bold">Team</h1>
-      <ul className="space-y-4">
-        {team.map((m, i) => (
-          <li key={i} className="rounded-xl border border-white/10 p-4">
-            <div className="text-lg font-semibold">{m.name}</div>
-            {m.role && <div className="text-sm text-zinc-400">{m.role}</div>}
-            {m.bio && <p className="mt-2 text-sm text-zinc-300">{m.bio}</p>}
-            {m.url && (
-              <a
-                className="mt-2 inline-block text-sm underline"
-                href={m.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Profile
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
-}
+const TeamPage: FC = () => (
+  <main className="p-8 max-w-4xl mx-auto">
+    <h1 className="text-3xl font-bold mb-6">Team</h1>
+    <ul className="grid gap-6">
+      {people.map((p, i) => (
+        <li key={i} className="rounded-xl border border-white/10 p-4">
+          <h3 className="font-semibold">{p.name}</h3>
+          {p.role && <p className="text-sm text-zinc-400">{p.role}</p>}
+          {p.bio && <p className="text-sm text-zinc-300 mt-2">{p.bio}</p>}
+        </li>
+      ))}
+    </ul>
+  </main>
+);
+
+export default TeamPage;
 

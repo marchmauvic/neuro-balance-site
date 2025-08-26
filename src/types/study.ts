@@ -1,21 +1,16 @@
-export type EndpointType = "Primary" | "Secondary";
+export type Asset = { label: string; url: string };
+export type Endpoint = { type: string; name: string };
 
 export type Study = {
   slug: string;
   title: string;
-  year: number;
-  venue?: string;
-  doi?: string;
-  authors?: string[];
-  institutions?: string[];
-  design: "RCT" | "Cohort" | "Preclinical" | "Case series" | "Other";
-  indication: string;
-  population: string;
-  n: number;
-  endpoints: { name: string; type: EndpointType }[];
-  results: string;
-  keyFindings: string[];
-  assets?: { label: string; url: string }[];
-  tags?: string[];
+  year?: number | string;
+  venue?: string | null;
+  design?: string;
+  population?: string;
+  indication?: string;
+  keyFindings?: string[];
+  endpoints?: Endpoint[];
+  assets?: Asset[];
 };
 

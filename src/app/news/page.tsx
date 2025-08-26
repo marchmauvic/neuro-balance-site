@@ -1,34 +1,29 @@
 import Link from "next/link";
-import newsRaw from "../../data/news.json";
+import type { NewsItem } from "@/types/news";
+import raw from "@/data/news.json";
 
-type NewsItem = {
-  date: string;        // e.g. "2022-01-31"
-  title: string;       // headline
-  url: string;         // external URL
-  sourceLabel?: string; // e.g. "Source"
-};
-
-const news: NewsItem[] = newsRaw as unknown as NewsItem[];
+const items = raw as NewsItem[];
 
 export default function NewsIndex() {
   return (
-    <main className="mx-auto max-w-3xl p-8">
-      <h1 className="mb-6 text-2xl font-bold">Newsroom</h1>
+    <main className="p-8 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">Newsroom</h1>
       <ul className="space-y-4">
-        {news.map((n, i) => (
+        {items.map((n, i) => (
           <li key={i} className="rounded-xl border border-white/10 p-4">
-            <div className="text-xs text-zinc-400">{n.date}</div>
-            <div className="mt-1 text-lg">{n.title}</div>
-            <div className="mt-3">
-              <a
+            {n.date && <p className="text-xs text-zinc-400">{n.date}</p>}
+            <h3 className="font-semibold">{n.title}</h3>
+            {n.summary && <p className="text-sm text-zinc-300">{n.summary}</p>}
+            {n.url && (
+              <Link
                 href={n.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded border border-white/10 px-3 py-1 text-sm hover:border-white/20"
+                className="underline text-sm"
               >
-                {n.sourceLabel ?? "Source"}
-              </a>
-            </div>
+                Source
+              </Link>
+            )}
           </li>
         ))}
       </ul>
