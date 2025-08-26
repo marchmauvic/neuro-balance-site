@@ -1,20 +1,22 @@
+'use client';
+
+import Link from 'next/link';
+
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-white/10 py-10 text-sm text-zinc-400">
-      <div className="mx-auto max-w-3xl px-4">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Neuro Balance. All rights reserved.</p>
-          <nav className="flex gap-4">
-            <a className="hover:text-white" href="/investors">Investors</a>
-            <a className="hover:text-white" href="/studies">Studies</a>
-            <a className="hover:text-white" href="/news">News</a>
-            <a className="hover:text-white" href="/contact">Contact</a>
-          </nav>
-        </div>
-        <p className="mt-4 text-xs">
-          This site may include forward-looking statements for informational purposes only and is not an
-          offer to sell or a solicitation of an offer to buy securities.
-        </p>
+    <footer className="mt-16 border-t border-white/10 py-8 text-sm text-zinc-400">
+      <div className="mx-auto max-w-4xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© {new Date().getFullYear()} Neuro Balance.</div>
+        <nav className="flex gap-4">
+          <Link href="/investors" className="hover:text-white">Investors</Link>
+          <Link href="/studies" className="hover:text-white">Studies</Link>
+          <Link href="/news" className="hover:text-white">News</Link>
+          <Link href="/contact" className="hover:text-white">Contact</Link>
+          {/* External example */}
+          <a href="https://vercel.com" target="_blank" rel="noreferrer" className="hover:text-white">
+            Vercel
+          </a>
+        </nav>
       </div>
     </footer>
   );
