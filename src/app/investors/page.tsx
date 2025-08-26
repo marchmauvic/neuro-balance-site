@@ -1,71 +1,48 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-
-export const metadata: Metadata = { title: 'Investors — Neuro Balance' };
-
-type Milestone = { quarter: string; summary: string };
-type Leader = { name: string; role: string; blurb?: string; href?: string };
-
-const milestones: Milestone[] = [
-  { quarter: 'Q4 2025', summary: 'Protocol finalize for concussion pilot; IRB submission' },
-  { quarter: 'Q1 2026', summary: 'First patient in; pain indication feasibility readout' },
-];
-
-const leadership: Leader[] = [
-  {
-    name: 'Ethan Russo, MD',
-    role: 'Scientific Advisor',
-    blurb: 'Neurologist and cannabinoid researcher',
-    href: 'https://ethanrusso.org/about-ethan-russo-md/',
-  },
-];
+import Link from "next/link";
 
 export default function InvestorsPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className="text-3xl font-bold">Investors</h1>
-      <p className="mt-2 text-zinc-300">
-        Focused strategy, capital discipline, and rigorous science. This page summarizes our plans and
-        the people behind them.
+    <main className="mx-auto max-w-3xl p-8">
+      <h1 className="text-2xl font-bold">Investors</h1>
+      <p className="mt-3 text-zinc-300">
+        We’re building a focused pipeline where cannabinoid pharmacology and rigorous clinical
+        design intersect. Our near-term milestones include study initiations and partnership
+        development.
       </p>
 
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold">Milestones</h2>
-        <ul className="mt-2 list-disc pl-5 space-y-1">
-          {milestones.map((m) => (
-            <li key={m.quarter}>
-              <span className="font-medium">{m.quarter} — </span>
-              <span>{m.summary}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <section className="mt-6 space-y-3">
+        <div className="rounded-xl border border-white/10 p-4">
+          <div className="font-semibold">Why now</div>
+          <p className="text-sm text-zinc-300">
+            Patient need is high, the preclinical signal is compelling, and study designs
+            can de-risk translation.
+          </p>
+        </div>
 
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold">Leadership</h2>
-        <ul className="mt-3 grid gap-3">
-          {leadership.map((p) => (
-            <li key={p.name} className="rounded-xl border border-white/10 p-4">
-              <div className="font-medium">{p.name}</div>
-              <div className="text-sm text-zinc-400">
-                {p.role}{p.blurb ? ` — ${p.blurb}` : ''}
-              </div>
-              {p.href ? (
-                <a href={p.href} target="_blank" rel="noreferrer" className="mt-2 inline-block text-sm underline">
-                  Learn more
-                </a>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
+        <div className="rounded-xl border border-white/10 p-4">
+          <div className="font-semibold">Near-term milestones</div>
+          <ul className="list-disc pl-5 text-sm text-zinc-300">
+            <li>Finalize protocols and site selection</li>
+            <li>Kick-off concussion and pain studies</li>
+            <li>Publish early data readouts</li>
+          </ul>
+        </div>
 
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold">More</h2>
-        <ul className="mt-3 grid gap-2">
-          <li><Link href="/studies" className="underline">Evidence base</Link></li>
-          <li><Link href="/news" className="underline">News & updates</Link></li>
-        </ul>
+        <div className="rounded-xl border border-white/10 p-4">
+          <div className="font-semibold">Learn more</div>
+          <ul className="list-disc pl-5 text-sm">
+            <li>
+              <Link className="underline" href="/studies">
+                Evidence base
+              </Link>
+            </li>
+            <li>
+              <Link className="underline" href="/news">
+                Newsroom
+              </Link>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
   );
