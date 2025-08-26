@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/investors", label: "Investors" },
   { href: "/studies", label: "Studies" },
   { href: "/news", label: "News" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -14,21 +14,23 @@ export default function Navbar() {
   const pathname = usePathname();
   return (
     <header className="sticky top-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
-      <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <div className="mx-auto max-w-3xl px-4 h-14 flex items-center justify-between">
         <Link href="/" className="font-semibold">Neuro Balance</Link>
-        <ul className="flex gap-5 text-sm">
-          {links.map((l) => (
-            <li key={l.href}>
+        <nav className="flex gap-5 text-sm">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
               <Link
+                key={l.href}
                 href={l.href}
-                className={`hover:underline ${pathname === l.href ? "text-white" : "text-zinc-300"}`}
+                className={active ? "text-white" : "text-zinc-300 hover:text-white"}
               >
                 {l.label}
               </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+            );
+          })}
+        </nav>
+      </div>
     </header>
   );
 }

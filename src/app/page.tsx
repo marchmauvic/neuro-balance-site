@@ -1,41 +1,38 @@
-import Link from "next/link";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
-    <div className="space-y-10">
-      <section className="rounded-2xl border border-white/10 p-10 bg-gradient-to-br from-white/5 to-transparent">
-        <h1 className="text-4xl font-semibold">
-          Translating cannabinoid science into clinical impact
-        </h1>
-        <p className="mt-4 text-zinc-300 max-w-2xl">
-          Neuro Balance curates and advances studies on cannabinoids in pain, concussion and
-          neuroprotection. Explore our evidence base and learn about the team.
+    <>
+      <Hero />
+      <section className="mx-auto max-w-3xl px-4 pb-10">
+        <h2 className="text-xl font-semibold">What we do</h2>
+        <p className="mt-2 text-zinc-300">
+          We identify high-signal opportunities where cannabinoid pharmacology and rigorous study design can
+          deliver meaningful clinical benefit. Our initial focus spans pain, concussion, and neuroprotection.
         </p>
-        <div className="mt-6 flex gap-3">
-          <Link href="/studies" className="rounded-lg px-4 py-2 bg-white text-black font-medium">
-            Browse studies
-          </Link>
-          <Link href="/about" className="rounded-lg px-4 py-2 border border-white/20">
-            About &amp; team
-          </Link>
-        </div>
-      </section>
 
-      <section className="grid sm:grid-cols-3 gap-4">
-        <Link href="/studies" className="rounded-xl border border-white/10 p-6 hover:bg-white/5">
-          <h3 className="font-semibold">Studies</h3>
-          <p className="text-sm text-zinc-400 mt-2">Peer-reviewed and ongoing research summaries.</p>
-        </Link>
-        <Link href="/news" className="rounded-xl border border-white/10 p-6 hover:bg-white/5">
-          <h3 className="font-semibold">Newsroom</h3>
-          <p className="text-sm text-zinc-400 mt-2">Partnerships and funding announcements.</p>
-        </Link>
-        <Link href="/contact" className="rounded-xl border border-white/10 p-6 hover:bg-white/5">
-          <h3 className="font-semibold">Investor contact</h3>
-          <p className="text-sm text-zinc-400 mt-2">Reach us for diligence materials and meetings.</p>
-        </Link>
+        <ul className="mt-6 grid gap-3">
+          <li>
+            <a className="block rounded-xl border border-white/10 p-4 hover:border-white/20" href="/investors">
+              <div className="font-medium">For investors</div>
+              <div className="text-sm text-zinc-400">Strategy, milestones, and scientific leadership.</div>
+            </a>
+          </li>
+          <li>
+            <a className="block rounded-xl border border-white/10 p-4 hover:border-white/20" href="/studies">
+              <div className="font-medium">Evidence base</div>
+              <div className="text-sm text-zinc-400">Explore studies relevant to our indications.</div>
+            </a>
+          </li>
+          <li>
+            <a className="block rounded-xl border border-white/10 p-4 hover:border-white/20" href="/news">
+              <div className="font-medium">Newsroom</div>
+              <div className="text-sm text-zinc-400">Company updates and notable coverage.</div>
+            </a>
+          </li>
+        </ul>
       </section>
-    </div>
+    </>
   );
 }
 
