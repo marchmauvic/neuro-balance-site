@@ -1,7 +1,10 @@
+// src/types/news.ts
 export type NewsItem = {
-  date?: string;
+  slug: string;
   title: string;
-  summary?: string;   // or "excerpt" depending on your JSON
-  url?: string;       // external link to source
+  date: string;     // ISO: YYYY-MM-DD
+  summary: string;
+  source?: string;  // optional
+  url: string;      // external link
 };
 
