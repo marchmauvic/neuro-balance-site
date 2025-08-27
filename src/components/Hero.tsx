@@ -1,22 +1,35 @@
 import Link from "next/link";
 
-export default function Hero() {
+type Cta = { href: string; label: string; variant?: "default" | "outline" };
+type HeroProps = { eyebrow?: string; title: string; subtitle?: string; ctas?: Cta[] };
+
+export default function Hero({ eyebrow, title, subtitle, ctas = [] }: HeroProps) {
   return (
-    <section className="mx-auto max-w-3xl px-4 pt-16 pb-8">
-      <h1 className="text-4xl font-bold tracking-tight">Science-first solutions for neuro-inflammation</h1>
-      <p className="mt-4 text-lg text-zinc-300">
-        We translate peer-reviewed cannabinoid science into therapies aimed at pain, concussion, and
-        neuroprotection. Built with clinical rigor and operational focus.
-      </p>
-      <div className="mt-6 flex gap-3">
-        <Link href="/investors" className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black">
-          Investors
-        </Link>
-        <Link href="/studies" className="rounded-lg border border-white/20 px-4 py-2 text-sm text-white">
-          Browse studies
-        </Link>
-      </div>
-    </section>
+    <header className="rounded-2xl border bg-white p-6 md:p-10">
+      {eyebrow && (
+        <div className="text-xs font-medium uppercase tracking-widest text-gray-500">
+          {eyebrow}
+        </div>
+      )}
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+      {subtitle && <p className="mt-3 max-w-3xl text-gray-600">{subtitle}</p>}
+      {ctas.length > 0 && (
+        <div className="mt-6 flex flex-wrap gap-3">
+          {ctas.map(({ href, label, variant = "default" }) => {
+            const base = "inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium";
+            const styles =
+              variant === "outline"
+                ? "border hover:bg-gray-50"
+                : "border border-transparent bg-black text-white hover:bg-gray-800";
+            return (
+              <Link key={href} href={href} className={`${base} ${styles}`}>
+                {label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </header>
   );
 }
 

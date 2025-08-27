@@ -1,9 +1,8 @@
 export type NewsItem = {
-  slug: string;
+  date: string;   // ISO date like "2022-02-01"
   title: string;
-  date: string;
   summary: string;
-  source?: string;
-  url: string;
+  url: string;    // external link to source
+  slug: string;   // used for internal keys/links
 };
 
