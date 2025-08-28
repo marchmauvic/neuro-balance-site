@@ -1,22 +1,33 @@
-import Link from 'next/link';
-import Image from 'next/image';
+// src/components/Navbar.tsx
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-      <Link href="/" className="flex items-center gap-2">
-        <Image src="/logo.svg" alt="Neuro Balance Rx" width={28} height={28} />
-        <span className="font-semibold">Neuro Balance Rx</span>
-      </Link>
-      <div className="flex flex-wrap items-center gap-4 text-sm">
-        <Link href="/about">About</Link>
-        <Link href="/team">Team</Link>
-        <Link href="/studies">Studies</Link>
-        <Link href="/news">News</Link>
-        <Link href="/investors">Investors</Link>
-        <Link href="/contact">Contact</Link>
-      </div>
-    </nav>
+    <header className="border-b">
+      <nav className="container mx-auto flex items-center justify-between py-3">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="Neuro Balance Rx"
+            width={160}
+            height={36}
+            priority
+          />
+        </Link>
+
+        <div className="flex items-center gap-5 text-sm">
+          <Link href="/studies" className="hover:underline">Studies</Link>
+          <Link href="/news" className="hover:underline">News</Link>
+          <Link
+            href="/investors"
+            className="rounded-full border px-4 py-2 hover:bg-gray-50"
+          >
+            Investors
+          </Link>
+        </div>
+      </nav>
+    </header>
   );
 }
 
